@@ -1,0 +1,18 @@
+package constant;
+
+public interface Contants {
+    int CONSTANT_CUSTOMER = 1;
+    int CONSTANT_EMPLOYEE = 2;
+
+    int CONSTANT_FINANCE = 1;
+    int CONSTANT_SALES_AND_MARKETING = 2;
+    int CONSTANT_LEGAL = 3;
+    int CONSTANT_INFORMATION_TECHNOLOGY = 4;
+    int CONSTANT_HUMAN_RESOURCES = 5;
+    int CONSTANT_HOUSE_KEEPING = 6;
+    int CONSTANT_SECURITY = 7;
+    int CONSTANT_MANAGEMENT = 8;
+
+    int CONSTANT_HEAD_OF_THE_PARTMENT = 1;
+    int CONSTANT_STAFF = 2;
+}
