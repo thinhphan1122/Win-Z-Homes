@@ -13,6 +13,6 @@ public interface Contants {
     int CONSTANT_SECURITY = 7;
     int CONSTANT_MANAGEMENT = 8;
 
-    int CONSTANT_HEAD_OF_THE_PARTMENT = 1;
+    int CONSTANT_HEAD_OF_THE_DEPARTMENT = 1;
     int CONSTANT_STAFF = 2;
 }

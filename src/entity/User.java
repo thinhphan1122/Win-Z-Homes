@@ -5,25 +5,15 @@ public class User {
     protected String username;
     protected String password;
     protected String fullName;
-    protected String nationalId;
-    protected String hometown;
-    protected int age;
-    protected String sex;
-    protected String occupation;
     protected String address;
     protected String phoneNumber;
     protected String email;
 
-    public User(int id, String username, String password, String fullName, String nationalId, String hometown, int age, String sex, String occupation, String address, String phoneNumber, String email) {
+    public User(int id, String username, String password, String fullName, String address, String phoneNumber, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
-        this.nationalId = nationalId;
-        this.hometown = hometown;
-        this.age = age;
-        this.sex = sex;
-        this.occupation = occupation;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -64,54 +54,6 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getNationalId() {
-        return nationalId;
-    }
-
-    public void setNationalId(String nationalId) {
-        this.nationalId = nationalId;
-    }
-
-    public String getHometown() {
-        return hometown;
-    }
-
-    public void setHometown(String hometown) {
-        this.hometown = hometown;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -135,14 +77,49 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", nationalId='" + nationalId + '\'' +
-                ", hometown='" + hometown + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                ", occupation='" + occupation + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    //Builder
+    public User id(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public User username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public User password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public User fullName(String fullName) {
+        this.fullName = fullName;
+        return this;
+    }
+
+    public User address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public User phoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public User email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public User createUser() {
+        return new User(id, username, password, fullName, address, phoneNumber, email);
     }
 }

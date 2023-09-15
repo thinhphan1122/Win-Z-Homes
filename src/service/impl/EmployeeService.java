@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 import constant.EDepartment;
 import constant.EPosition;
@@ -10,7 +10,28 @@ import java.util.Scanner;
 import static constant.Contants.*;
 
 public class EmployeeService {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void addEmployeeInformation(User user) {
+        registerEmployeeCode(user);
+        registerEmployeeDepartment(user);
+        registerEmployeePosition(user);
+        calculateEmployeeSalary(user);
+    }
+
+    public static void registerEmployeeCode(User user) {
+        ((Employee) user).setEmployeeCode(generateRandomEmployeeCode());
+    }
+
+    public static String generateRandomEmployeeCode() {
+        StringBuilder employeeCode = new StringBuilder("E"); //E = Employee
+        int length = 6;
+        for (int i = 0; i < length; i++) {
+            int random = 1 + (int) (Math.random() * 10);
+            employeeCode.append(random);
+        }
+        return employeeCode.toString();
+    }
 
     public static void registerEmployeeDepartment(User user) {
         System.out.println("Department: "
@@ -63,12 +84,24 @@ public class EmployeeService {
         int flag = scanner.nextInt();
         scanner.nextLine();
         switch (flag) {
-            case CONSTANT_HEAD_OF_THE_PARTMENT:
+            case CONSTANT_HEAD_OF_THE_DEPARTMENT:
                 ((Employee) user).setPosition(String.valueOf(EPosition.HEAD_OF_THE_DEPARTMENT));
                 break;
             case CONSTANT_STAFF:
                 ((Employee) user).setPosition(String.valueOf(EPosition.STAFF));
                 break;
+            default:
+                System.out.println("Invalid input!");
+                registerEmployeeCode(user);
+                break;
         }
+    }
+
+    public static void calculateEmployeeSalary(User user) {
+        long salary = 10000000;
+        if (((Employee) user).getPosition().equals(String.valueOf(EPosition.HEAD_OF_THE_DEPARTMENT))) {
+            salary *= 2;
+            ((Employee) user).setSalary(salary);
+        } else ((Employee) user).setSalary(salary);
     }
 }

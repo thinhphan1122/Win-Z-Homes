@@ -1,7 +1,15 @@
-import service.UserService;
+import entity.User;
+import service.impl.TestService;
+import service.impl.UserService;
 
 public class Main {
     public static void main(String[] args) {
-        UserService.addUserToList();
+        TestService.createDev();
+        TestService.createTester();
+
+        UserService userService = new UserService();
+//        userService.userRegister();
+        userService.userLogin();
+        userService.displayUserList();
     }
 }
