@@ -8,8 +8,6 @@ public class Main {
         TestService.createTester();
 
         UserService userService = new UserService();
-//        userService.userRegister();
-        userService.userLogin();
-        userService.displayUserList();
+        userService.chooseLoginOptions();
     }
 }

@@ -7,23 +7,23 @@ import entity.User;
 
 import java.util.Scanner;
 
-import static constant.Contants.*;
+import static constant.Constants.*;
 
 public class EmployeeService {
-    private static final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
-    public static void addEmployeeInformation(User user) {
+    public void addEmployeeInformation(User user) {
         registerEmployeeCode(user);
         registerEmployeeDepartment(user);
         registerEmployeePosition(user);
         calculateEmployeeSalary(user);
     }
 
-    public static void registerEmployeeCode(User user) {
+    protected void registerEmployeeCode(User user) {
         ((Employee) user).setEmployeeCode(generateRandomEmployeeCode());
     }
 
-    public static String generateRandomEmployeeCode() {
+    protected String generateRandomEmployeeCode() {
         StringBuilder employeeCode = new StringBuilder("E"); //E = Employee
         int length = 6;
         for (int i = 0; i < length; i++) {
@@ -33,7 +33,7 @@ public class EmployeeService {
         return employeeCode.toString();
     }
 
-    public static void registerEmployeeDepartment(User user) {
+    protected void registerEmployeeDepartment(User user) {
         System.out.println("Department: "
                 + "\n" + "1. Finance"
                 + "\n" + "2. Sales & Marketing"
@@ -75,7 +75,7 @@ public class EmployeeService {
         }
     }
 
-    public static void registerEmployeePosition(User user) {
+    protected void registerEmployeePosition(User user) {
         System.out.println("Position: "
                 + "\n" + "1. Head of The Department"
                 + "\n" + "2. Employee"
@@ -97,7 +97,7 @@ public class EmployeeService {
         }
     }
 
-    public static void calculateEmployeeSalary(User user) {
+    protected void calculateEmployeeSalary(User user) {
         long salary = 10000000;
         if (((Employee) user).getPosition().equals(String.valueOf(EPosition.HEAD_OF_THE_DEPARTMENT))) {
             salary *= 2;

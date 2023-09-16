@@ -1,6 +1,10 @@
 package constant;
 
-public interface Contants {
+public interface Constants {
+    int CONSTANT_LOGIN = 1;
+    int CONSTANT_REGISTER = 2;
+    int CONSTANT_CANCEL = 3;
+
     int CONSTANT_CUSTOMER = 1;
     int CONSTANT_EMPLOYEE = 2;
 
