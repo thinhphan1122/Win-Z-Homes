@@ -1,10 +1,10 @@
 import service.impl.RoomService;
-import service.impl.TestService;
+import service.impl.DataService;
 import service.impl.UserService;
 
 public class Main {
     public static void main(String[] args) {
-        TestService.createBuilding();
+        DataService.createBuilding();
 //        TestService.createDev();
 //        TestService.createTester();
 //        TestService.createCustomer1();
