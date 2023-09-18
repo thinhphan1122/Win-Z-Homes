@@ -8,5 +8,5 @@ public enum EDepartment {
     HUMAN_RESOURCES,
     HOUSE_KEEPING,
     SECURITY,
-    MANAGEMENT,
+    CUSTOMER_SERVICE,
 }
