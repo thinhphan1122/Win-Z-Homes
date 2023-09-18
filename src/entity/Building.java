@@ -1,9 +1,10 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Building {
+public class Building implements Serializable {
     private int id;
     private String buildingName;
     private List<Room> roomList = new ArrayList<>();

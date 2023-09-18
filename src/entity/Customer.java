@@ -1,6 +1,8 @@
 package entity;
 
-public class Customer extends User {
+import java.io.Serializable;
+
+public class Customer extends User implements Serializable {
     private String customerCode;
     private String buildingName;
     private Room room;

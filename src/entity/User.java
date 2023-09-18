@@ -1,6 +1,8 @@
 package entity;
 
-public class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
     protected int id;
     protected String username;
     protected String password;
@@ -117,9 +119,5 @@ public class User {
     public User email(String email) {
         this.email = email;
         return this;
-    }
-
-    public User createUser() {
-        return new User(id, username, password, fullName, address, phoneNumber, email);
     }
 }

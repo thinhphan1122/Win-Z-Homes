@@ -5,11 +5,12 @@ import service.impl.UserService;
 public class Main {
     public static void main(String[] args) {
         TestService.createBuilding();
-        TestService.createDev();
-        TestService.createTester();
-        TestService.createCustomer1();
-        TestService.createCustomer2();
-        TestService.createCustomer3();
+//        TestService.createDev();
+//        TestService.createTester();
+//        TestService.createCustomer1();
+//        TestService.createCustomer2();
+//        TestService.createCustomer3();
+//        TestService.createCustomer4();
 
         RoomService.checkTotalRoomResident();
         UserService.displayUserList();

@@ -23,7 +23,6 @@ public interface Constants {
     int CONSTANT_EDIT_BASIC_INFORMATION = 1;
     int CONSTANT_SEARCH_USER = 2;
 
-
     int SEARCH_BY_USERNAME = 1;
     int SEARCH_BY_FULL_NAME = 2;
     int SEARCH_BY_EMAIL = 3;
