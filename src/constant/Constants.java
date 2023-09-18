@@ -16,6 +16,7 @@ public interface Constants {
     int CONSTANT_HOUSE_KEEPING = 6;
     int CONSTANT_SECURITY = 7;
     int CONSTANT_CUSTOMER_SERVICE = 8;
+    int CONSTANT_CANCEL_1 = 9;
 
     int CONSTANT_HEAD_OF_THE_DEPARTMENT = 1;
     int CONSTANT_STAFF = 2;
@@ -28,7 +29,7 @@ public interface Constants {
     int SEARCH_BY_EMAIL = 3;
     int SEARCH_BY_DEPARTMENT = 4;
     int SEARCH_BY_RESIDENCY = 5;
-    int CONSTANT_CANCEL_1 = 6;
+    int CONSTANT_CANCEL_2 = 6;
 
     int CONSTANT_SEARCH_RESIDENCY_INFORMATION = 2;
 }
