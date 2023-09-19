@@ -19,8 +19,8 @@ public class BuildingService {
     }
 
     public static void addBuildingInformation(Building building, int index) {
-        building.setBuildingName(createBuildingName());
         building.setId(index);
+        building.setBuildingName(createBuildingName());
     }
 
     protected static String createBuildingName() {

@@ -4,7 +4,6 @@ import entity.*;
 import service.ISearch;
 
 public class SearchByEmail implements ISearch {
-
     @Override
     public void search(String input) {
         for (User user : UserService.users) {

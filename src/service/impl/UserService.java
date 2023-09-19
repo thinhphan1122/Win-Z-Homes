@@ -16,8 +16,27 @@ public class UserService {
         scanner = new Scanner(System.in);
     }
 
-    public static void chooseLoginOptions() {
+    public static void loginSetup() {
+        DataService.createBuilding();
+
+//        createDefaultAccount();
+
+        RoomService.checkRoomTotalResident();
+        UserService.displayUserList();
+    }
+
+    public static void createDefaultAccount() {
+        DataService.createDev();
+        DataService.createTester();
+        DataService.createCustomer1();
+        DataService.createCustomer2();
+        DataService.createCustomer3();
+        DataService.createCustomer4();
+    }
+
+    public static void loginMenu() {
         while (true) {
+            loginSetup();
             DataService.readData();
             System.out.println("Welcome to WinZHomes! Would you like to login or register as a new customer?"
                     + "\n" + "1. Login"
@@ -71,7 +90,7 @@ public class UserService {
             } else if (user.getUsername().equals(username)
                     && !user.getPassword().equals(password)) {
                 System.out.println("Wrong password!");
-                chooseLoginOptions();
+                loginMenu();
                 break;
             }
         }
@@ -98,7 +117,7 @@ public class UserService {
             user = new Customer();
             addUserRegisterInformation(user);
         } else if (answer.equals("n") || answer.equals("N")) {
-            chooseLoginOptions();
+            loginMenu();
         } else {
             System.out.println("Invalid answer! Try again!");
             userLogin();
@@ -139,15 +158,22 @@ public class UserService {
     protected static void addUserRegisterInformation(User newUser) {
         System.out.println("Username: ");
         String username = scanner.nextLine();
-        newUser.setId(createNewCustomerId());
-        newUser.setUsername(username);
 
-        editUserBasicInformation(newUser);
-        addSpecificInformationByUserRegisterAccountType(newUser);
-        addUserToUserList(newUser);
+        if (users.stream().noneMatch(user -> user.getUsername().equals(username))) {
+            newUser.setId(createNewCustomerId());
+            newUser.setUsername(username);
 
-        DataService.clearData();
-        DataService.writeData(users);
+            editUserBasicInformation(newUser);
+            addSpecificInformationByUserRegisterAccountType(newUser);
+            addUserToUserList(newUser);
+
+            DataService.clearData();
+            DataService.writeData(users);
+
+        } else {
+            System.out.println("Username existed!");
+            addUserRegisterInformation(newUser);
+        }
     }
 
     protected static void editUserBasicInformation(User newUser) {
@@ -179,6 +205,7 @@ public class UserService {
 
     protected static void addSpecificInformationByUserRegisterAccountType(User user) {
         if (user instanceof Customer) {
+//            System.out.println("Add employee information: ");
             CustomerService.addCustomerInformation(user);
             System.out.println("Registered completed!");
         } else if (user instanceof Employee) {

@@ -124,7 +124,7 @@ public class DataService {
 //            throw new RuntimeException(e);
             System.out.println(System.err);
         }
-        System.out.println(UserService.users);
+//        System.out.println(UserService.users);
     }
 
     protected static void clearData() {

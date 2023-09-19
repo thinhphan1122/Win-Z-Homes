@@ -36,12 +36,13 @@ public class RoomService {
         roomList.add(room);
     }
 
-    public static void checkTotalRoomResident() {
+    //Cần fix:
+    public static void checkRoomTotalResident() {
         for (Room room : roomList) {
             int count = 0;
             for (User user : UserService.users) {
                 if (user instanceof Customer) {
-                    if(room.equals(((Customer) user).getRoom())) {
+                    if (room.equals(((Customer) user).getRoom())) {
                         count++;
                         room.setResidentCount(count);
                     }
@@ -49,5 +50,5 @@ public class RoomService {
             }
         }
     }
-    //
 }
+

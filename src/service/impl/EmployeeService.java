@@ -103,7 +103,6 @@ public class EmployeeService {
                 break;
             default:
                 System.out.println("Invalid input!");
-                registerEmployeeCode(user);
                 break;
         }
     }
@@ -136,7 +135,7 @@ public class EmployeeService {
                 searchInformation();
                 break;
             case CONSTANT_CANCEL:
-                return;
+                break;
             default:
                 System.out.println("Invalid input!");
                 break;
@@ -231,33 +230,37 @@ public class EmployeeService {
             editOtherUserSpecialInformation(user);
         } else {
             System.out.println("Invalid answer! Try again!");
-
+            editOtherUserInformationProcess(user);
         }
     }
 
     private static void editOtherUserSpecialInformation(User user) {
         if (user instanceof Customer) {
-
-            System.out.println("Building: ");
-            String buildingName = scanner.nextLine();
-            for (Building building : BuildingService.buildingList) {
-                if (building.getBuildingName().equals(buildingName)) {
-                    ((Customer) user).setBuildingName(buildingName);
-                }
-            }
-
-            System.out.println("Room: ");
-            int roomNumber = scanner.nextInt();
-            scanner.nextLine();
-            for (Room room : RoomService.roomList) {
-                if (room.getRoomNumber() == roomNumber) {
-                    ((Customer) user).setRoom(room);
-                }
-            }
+           editCustomerResidency(user);
 
         } else if (user instanceof Employee) {
             registerEmployeeDepartment(user);
             registerEmployeePosition(user);
+        }
+    }
+
+    private static void editCustomerResidency(User user) {
+        System.out.println("Building: ");
+        String buildingName = scanner.nextLine();
+        for (Building building : BuildingService.buildingList) {
+            if (building.getBuildingName().equals(buildingName)) {
+                ((Customer) user).setBuildingName(buildingName);
+            }
+        }
+
+        System.out.println("Room: ");
+        int roomNumber = scanner.nextInt();
+        scanner.nextLine();
+        for (Room room : RoomService.roomList) {
+            if (room.getRoomNumber() == roomNumber) {
+                ((Customer) user).setRoom(room);
+                RoomService.checkRoomTotalResident();
+            }
         }
     }
 }
