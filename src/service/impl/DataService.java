@@ -6,6 +6,8 @@ import entity.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DataService {
     private static final String PATH_CUSTOMER = "src/data/user.txt";
@@ -131,4 +133,16 @@ public class DataService {
         File filePath = new File(PATH_CUSTOMER);
         filePath.delete();
     }
+
+    //LinkedHashMap testing
+//    public static void adjustIdenticalProducts() {
+//        Map<Product, CartItem> map = new LinkedHashMap<>();
+//        for (CartItem cartItem : cartItemList) {
+//            CartItem oldCartItem = map.put(cartItem.getProduct(), cartItem);
+//            if (oldCartItem != null) {
+//                cartItem.setQuantity(cartItem.getQuantity() + oldCartItem.getQuantity());
+//            }
+//        }
+//        cartItemList = new ArrayList<>(map.values());
+//    }
 }

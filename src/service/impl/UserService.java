@@ -12,6 +12,7 @@ public class UserService {
     private static final Scanner scanner;
 
     static {
+        //
         users = new ArrayList<>();
         scanner = new Scanner(System.in);
     }
@@ -145,7 +146,7 @@ public class UserService {
                     addUserRegisterInformation(newUser);
                     break;
                 case CONSTANT_CANCEL:
-                    break;
+                        break;
             }
         } else if (answer.equals("n") || answer.equals("N")) {
             EmployeeService.operateEmployeeServices(user);
